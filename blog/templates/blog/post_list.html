@@ -1,20 +1,29 @@
+
 <html>
+{% extends 'blog/base.html' %}
+            {% block content %}
     <head>
-        <title> Our blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/"> Our Blog</a></h1>
+        <div id= "slider">
+            <figure>
+                <img src = "https://www.incimages.com/uploaded_files/image/970x450/getty_827615404_341774.jpg">
+                <img src = "https://d27p8o2qkwv41j.cloudfront.net/wp-content/uploads/2017/03/Gold-vs-real-estate-investment-e1489031096255.jpg">
+                <img src = "http://knowledge.wharton.upenn.edu/wp-content/uploads/2016/09/paper-buildings.jpg">
+                <img src = "https://www.joncohenlawyer.com/wp-content/uploads/2015/08/REAL-ESTATE-COMMUNICATIONS.jpg">
+
+                <img src = "https://selecaoengenharia.com.br/blog/wp-content/uploads/2017/06/mercado-de-trabalho-engenharia-2017.png">
+            </figure>
+
         </div>
 
         {% for post in posts %}
-    <div>
-        <p>published: {{ post.published_date }}</p>
-        <h1><a href="">{{ post.title }}</a></h1>
+        <div class="post">
+            <p>published: {{ post.published_date }}</p>
+        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
         <p>{{ post.text|linebreaksbr }}</p>
-    </div>
+        </div>
         {% endfor %}
-
-        
-    </body>
+{% endblock %}
+    
 </html>
+
+
